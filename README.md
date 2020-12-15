@@ -203,7 +203,7 @@ java.lang.IllegalArgumentException: Class file is Java 9 but max supported is Ja
 To build with Java 8, use the toolchain bundled with these App Engine rules:
 
 ```
-$ bazel build --java_toolchain=@io_bazel_rules_appengine//appengine:jdk8 //my-project
+$ bazel build --extra_toolchains=@io_bazel_rules_appengine//appengine/jdk:jdk8_definition //my-project
 ```
 
 To avoid having to specify this toolchain during every build, you can add this
@@ -211,7 +211,7 @@ to your project's `.bazelrc`.  Create a `.bazelrc` file in the root directory of
 your project and add the line:
 
 ```
-build --java_toolchain=@io_bazel_rules_appengine//appengine:jdk8
+build --extra_toolchains=@io_bazel_rules_appengine//appengine/jdk:jdk8_definition
 ```
 
 <a name="appengine_war"></a>

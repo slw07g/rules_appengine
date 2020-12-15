@@ -12,21 +12,8 @@ filegroup(
     visibility = ["//tools:__pkg__"],
 )
 
-java_toolchain(
+alias(
     name = "jdk8",
-    bootclasspath = ["@bazel_tools//tools/jdk:bootclasspath"],
-    genclass = ["@bazel_tools//tools/jdk:GenClass_deploy.jar"],
-    header_compiler = ["@bazel_tools//tools/jdk:turbine_deploy.jar"],
-    ijar = ["@bazel_tools//tools/jdk:ijar"],
-    javabuilder = ["@bazel_tools//tools/jdk:JavaBuilder_deploy.jar"],
-    tools = ["@bazel_tools//third_party/java/jdk/langtools:javac_jar"],
-    javac_supports_workers = 1,
-    jvm_opts = [
-        "-XX:+TieredCompilation",
-        "-XX:TieredStopAtLevel=1",
-    ],
-    singlejar = ["@bazel_tools//tools/jdk:singlejar"],
-    source_version = "8",
-    target_version = "8",
+    actual = "@rules_appengine_toolchain//:jdk8",
     visibility = ["//visibility:public"],
 )

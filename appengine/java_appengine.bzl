@@ -316,3 +316,57 @@ def java_appengine_repositories(
         server_urls = ["https://repo1.maven.org/maven2/"],
         licenses = ["reciprocal"],  # CDDL License
     )
+
+    if len(native.bazel_version) > 0:
+        bazel_version = tuple([int(n) for n in native.bazel_version.split(".")])
+    else:
+        bazel_version = ()  # Bazel@HEAD
+
+    if bazel_version > (4, 0, 0) or bazel_version == ():
+        build_file_content = """
+load(
+    "@bazel_tools//tools/jdk:default_java_toolchain.bzl",
+    "default_java_toolchain",
+    "JVM8_TOOLCHAIN_CONFIGURATION",
+    "JDK8_JVM_OPTS"
+)
+
+default_java_toolchain(
+    name = "jdk8",
+    configuration = JVM8_TOOLCHAIN_CONFIGURATION,
+    jvm_opts = JDK8_JVM_OPTS + [
+        "-XX:+TieredCompilation",
+        "-XX:TieredStopAtLevel=1",
+    ],
+    source_version = "8",
+    target_version = "8",
+    visibility = ["//visibility:public"],
+)
+"""
+        # Bazel <= 4.0.0
+
+    else:
+        build_file_content = """
+load(
+    "@bazel_tools//tools/jdk:default_java_toolchain.bzl",
+    "default_java_toolchain",
+    "JDK8_JVM_OPTS",
+)
+
+default_java_toolchain(
+    name = "jdk8",
+    tools = ["@bazel_tools//third_party/java/jdk/langtools:javac_jar"],
+    jvm_opts = JDK8_JVM_OPTS + [
+        "-XX:+TieredCompilation",
+        "-XX:TieredStopAtLevel=1",
+    ],
+    source_version = "8",
+    target_version = "8",
+    visibility = ["//visibility:public"],
+)
+          """
+    native.new_local_repository(
+        name = "rules_appengine_toolchain",
+        path = ".",
+        build_file_content = build_file_content,
+    )
