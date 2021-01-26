@@ -71,6 +71,7 @@ APP_ID. If not specified, it uses the default APP_ID provided in the application
 web.xml.
 """
 
+load("@bazel_skylib//lib:versions.bzl", "versions")
 load("@bazel_tools//tools/build_defs/repo:jvm.bzl", "jvm_maven_import_external")
 load(":variables.bzl", "JAVA_SDK_SHA256", "JAVA_SDK_VERSION")
 load(":sdk.bzl", "find_locally_or_download")
@@ -317,12 +318,7 @@ def java_appengine_repositories(
         licenses = ["reciprocal"],  # CDDL License
     )
 
-    if len(native.bazel_version) > 0:
-        bazel_version = tuple([int(n) for n in native.bazel_version.split(".")])
-    else:
-        bazel_version = ()  # Bazel@HEAD
-
-    if bazel_version > (4, 0, 0) or bazel_version == ():
+    if not versions.get() or not versions.is_at_most("4.0.0", versions.get()): # development or version > 4.0.0
         build_file_content = """
 load(
     "@bazel_tools//tools/jdk:default_java_toolchain.bzl",
