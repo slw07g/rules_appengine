@@ -226,6 +226,25 @@ your project and add the line:
 build --extra_toolchains=@io_bazel_rules_appengine//appengine/jdk:jdk8_definition
 ```
 
+In case you don't want to install JDK 8 on the machine running Bazel, you can
+import remote JDK8 repositories by adding the following lines to your WORKSPACE
+file:
+
+```python
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "rules_java",
+    sha256 = "7c4bbe11e41c61212a5cf16d9aafaddade3f5b1b6c8bf94270d78215fafd4007",
+    strip_prefix = "rules_java-c13e3ead84afb95f81fbddfade2749d8ba7cb77f",
+    url = "https://github.com/bazelbuild/rules_java/archive/c13e3ead84afb95f81fbddfade2749d8ba7cb77f.tar.gz",  # 2021-01-25
+)
+
+load("@rules_java//java:repositories.bzl", "remote_jdk8_repos")
+
+remote_jdk8_repos()
+```
+
 <a name="appengine_war"></a>
 ## appengine_war
 
