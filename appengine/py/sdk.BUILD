@@ -122,7 +122,7 @@ py_library(
 
 py_library(
     name = "jinja2-latest",
-    deps = [":jinja2-2.6"],
+    deps = [":jinja2-3.1.2"],
 )
 
 py_library(
