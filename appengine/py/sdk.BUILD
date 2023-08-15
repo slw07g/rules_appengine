@@ -141,13 +141,13 @@ py_library(
 )
 
 py_library(
-    name = "webapp2-latest",
-    deps = [":webapp2-2.5.2"],
+    name = "webapp3-latest",
+    deps = [":webapp3-1.0.2"],
 )
 
 py_library(
     name = "webob-latest",
-    deps = [":webob-1.2.3"],
+    deps = [":webob-1.8.7"],
 )
 
 py_library(
