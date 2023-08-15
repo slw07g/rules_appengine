@@ -28,7 +28,7 @@ py_appengine_test(
   name = "mywebapp_test",
   srcs = ["main_test.py"],
   deps = [":main"],
-  libraries = {"webapp2": "latest"},
+  libraries = {"webapp3": "latest"},
 )
 
 To run locally:
