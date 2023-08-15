@@ -86,16 +86,16 @@ py_library(
 )
 
 py_library(
-    name = "webapp2-2.5.2",
-    srcs = glob(["lib/webapp2-2.5.2/**/*.py"]),
-    imports = ["lib/webapp2-2.5.2"],
-    deps = [":webob-1.2.3"],
+    name = "webapp3-1.0.2",
+    srcs = glob(["lib/webapp3-1.0.2/**/*.py"]),
+    imports = ["lib/webapp3-1.0.2"],
+    deps = [":webob-1.8.7"],
 )
 
 py_library(
-    name = "webob-1.2.3",
-    srcs = glob(["lib/webob-1.2.3/**/*.py"]),
-    imports = ["lib/webob-1.2.3"],
+    name = "webob-1.8.7",
+    srcs = glob(["lib/webob-1.8.7/**/*.py"]),
+    imports = ["lib/webob-1.8.7"],
 )
 
 py_library(
