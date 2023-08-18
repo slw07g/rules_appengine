@@ -50,9 +50,9 @@ py_library(
 )
 
 py_library(
-    name = "jinja2-2.6",
-    srcs = glob(["lib/jinja2-2.6/jinja2/**/*.py"]),
-    imports = ["lib/jinja2-2.6"],
+    name = "jinja2-3.1.2",
+    srcs = glob(["lib/jinja2-3.1.2/jinja2/**/*.py"]),
+    imports = ["lib/jinja2-3.1.2"],
 )
 
 py_library(
