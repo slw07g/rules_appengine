@@ -37,7 +37,7 @@ def _find_locally_or_download_impl(repository_ctx):
         }
         repository_ctx.download_and_extract(
             url = "{}/{}".format(
-                SDK_URL_PREFIX,
+               repository_ctx.attr.url_prefix,
                 repository_ctx.attr.filename_pattern.format(**substitutions),
             ),
             output = ".",
@@ -78,6 +78,11 @@ find_locally_or_download = repository_rule(
             mandatory = True,
             doc =
                 "The filename of the SDK zip file to download. If it includes '{version}', it will be replaced with the version.",
+        ),
+        "url_prefix": attr.string(
+            default = SDK_URL_PREFIX,
+            mandatory = True,
+            doc = "URL Prefix for downloading the appengine SDK"
         ),
     },
     local = False,
