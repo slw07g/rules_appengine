@@ -81,7 +81,7 @@ find_locally_or_download = repository_rule(
         ),
         "url_prefix": attr.string(
             default = SDK_URL_PREFIX,
-            mandatory = True,
+            mandatory = False,
             doc = "URL Prefix for downloading the appengine SDK"
         ),
     },
