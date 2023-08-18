@@ -51,10 +51,10 @@ def py_appengine_repositories(version = PY_SDK_VERSION, sha256 = PY_SDK_SHA256):
         name = "com_google_appengine_py",
         lang = "py",
         sha256 = sha256,
-        version = version,
+        version = f'v{version}',
         filename_pattern = "v{version}.zip",
         strip_prefix_pattern = "v",
-        url_prefix = "https://github.com/GoogleCloudPlatform/appengine-python-standard/archive/refs/tags/v{version}.zip"
+        url_prefix = "https://github.com/GoogleCloudPlatform/appengine-python-standard/archive/refs/tags/"
     )
 
 def py_appengine_test(name, srcs, deps = [], data = [], libraries = {}, size = None):
