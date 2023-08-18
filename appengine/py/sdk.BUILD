@@ -44,6 +44,11 @@ py_library(
 )
 
 py_library(
+    name = "appengine-python-standard-latest",
+    deps = [":appengine-python-standard-1.1.3"]
+    
+)
+py_library(
     name = "fancy_urllib",
     srcs = glob(["lib/fancy_urllib/**/*.py"]),
     imports = ["lib/fancy_urllib"],
