@@ -36,7 +36,7 @@ py_library(
     #    ["src/**/*"],
     #    exclude = ["**/*.py"],
     #),
-    deps = [":appengine-python-standard-latest"],
+    deps = [":appengine-python-standard-1.1.3"],
 )
 
 py_binary(
