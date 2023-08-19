@@ -28,7 +28,6 @@ load("//appengine:sdk.bzl", "appengine_repositories")
 load("//appengine:java_appengine.bzl", "java_appengine_repositories")
 load("//appengine:py_appengine.bzl", "py_appengine_repositories")
 
-pip_install('appengine-python-standard==1.1.3')
 appengine_repositories()
 
 java_appengine_repositories()
