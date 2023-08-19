@@ -17,7 +17,7 @@ package(default_visibility = ["//visibility:public"])
 
 py_library(
     name = "appengine-python-standard-1.1.3",
-    srcs = glob(["lib/appengine-python-standard-1.1.3/**/*.py"]),
+    srcs = glob(["**/*.py"]),
     imports = ["lib/appengine-python-standard-1.1.3"],
     
 )
