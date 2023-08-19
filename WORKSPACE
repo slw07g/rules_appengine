@@ -32,4 +32,4 @@ appengine_repositories()
 
 java_appengine_repositories()
 
-py_appengine_repositories()
+#py_appengine_repositories()
