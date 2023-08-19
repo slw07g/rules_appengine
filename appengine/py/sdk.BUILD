@@ -29,6 +29,11 @@ py_library(
 )
 
 py_library(
+    name = "com_google_appengine_py",
+    deps = [":appengine-python-standard-latest"]
+)
+
+py_library(
     name = "appengine",
     deps = [":appengine-python-standard-latest"],
 )
