@@ -24,13 +24,14 @@ py_library(
 )
 
 py_library(
+    name = "appengine-python-standard-latest",
+    deps = [":appengine-python-standard-1.1.3"]
+    
+)
+
+py_library(
     name = "appengine",
-    #srcs = glob(["src/**/*.py"]),
-    #data = glob(
-    #    ["src/**/*"],
-    #    exclude = ["**/*.py"],
-    #),
-    deps = [":appengine-python-standard-1.1.3"],
+    deps = [":appengine-python-standard-latest"],
 )
 
 py_binary(
