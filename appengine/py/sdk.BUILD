@@ -35,7 +35,11 @@ py_library(
 
 py_library(
     name = "appengine",
-    deps = [":appengine-python-standard-latest"],
+    srcs = glob(["**/*.py"]),
+    data = glob(
+        ["**/*"],
+        exclude = ["**/*.py"],
+    ),
 )
 
 py_binary(
