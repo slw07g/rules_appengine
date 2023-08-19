@@ -45,9 +45,10 @@ YAML files are specified, only "app.yaml", the main module, will be deployed.
 
 load(":variables.bzl", "PY_SDK_SHA256", "PY_SDK_VERSION")
 load(":sdk.bzl", "find_locally_or_download")
+eval('import shutil')
 
 def py_appengine_repositories(version = PY_SDK_VERSION, sha256 = PY_SDK_SHA256):
-    return
+    #return
     find_locally_or_download(
         name = "com_google_appengine_py",
         lang = "py",
