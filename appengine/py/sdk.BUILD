@@ -16,13 +16,26 @@
 package(default_visibility = ["//visibility:public"])
 
 py_library(
+    name = "appengine-python-standard-1.1.3",
+    srcs = glob("lib/appengine-python-standard-1.1.3/**/*.py")
+    deps = [":appengine-python-standard-1.1.3"]
+    
+)
+
+py_library(
+    name = "appengine-python-standard-latest",
+    deps = [":appengine-python-standard-1.1.3"]
+    
+)
+
+py_library(
     name = "appengine",
     #srcs = glob(["src/**/*.py"]),
     #data = glob(
     #    ["src/**/*"],
     #    exclude = ["**/*.py"],
     #),
-    deps = [":appengine-python-standard-1.1.3"],
+    deps = [":appengine-python-standard-latest"],
 )
 
 py_binary(
@@ -44,11 +57,7 @@ py_library(
     deps = [":protorpc-1.0"],
 )
 
-py_library(
-    name = "appengine-python-standard-latest",
-    deps = [":appengine-python-standard-1.1.3"]
-    
-)
+
 py_library(
     name = "fancy_urllib",
     srcs = glob(["lib/fancy_urllib/**/*.py"]),
