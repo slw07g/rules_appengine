@@ -33,3 +33,4 @@ appengine_repositories()
 java_appengine_repositories()
 
 py_appengine_repositories()
+pip_install('appengine-python-standard==1.1.3')
