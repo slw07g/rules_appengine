@@ -17,11 +17,12 @@ package(default_visibility = ["//visibility:public"])
 
 py_library(
     name = "appengine",
-    srcs = glob(["src/**/*.py"]),
-    data = glob(
-        ["src/**/*"],
-        exclude = ["**/*.py"],
-    ),
+    #srcs = glob(["src/**/*.py"]),
+    #data = glob(
+    #    ["src/**/*"],
+    #    exclude = ["**/*.py"],
+    #),
+    deps = [":appengine-python-standard-1.1.3"],
 )
 
 py_binary(
