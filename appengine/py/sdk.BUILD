@@ -175,6 +175,11 @@ py_library(
 )
 
 py_library(
+    name = "frozendict-latest",
+    deps = [":frozendict-2.3.7"],
+)
+
+py_library(
     name = "werkzeug-latest",
     deps = [":werkzeug-0.11.10"],
 )
