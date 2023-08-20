@@ -61,6 +61,11 @@ py_library(
     deps = [":protorpc-1.0"],
 )
 
+py_library(
+    name = "frozendict-2.3.7",
+    srcs = glob(["lib/frozendict-2.3.7/**/*.py"]),
+    imports = ["lib/frozendict-2.3.7"],
+)
 
 py_library(
     name = "fancy_urllib",
