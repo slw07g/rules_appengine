@@ -24,7 +24,7 @@ py_library(
 
 py_library(
     name = "appengine-python-standard-latest",
-    deps = [":appengine-python-standard-1.1.3"]
+    deps = [":appengine-python-standard-1.1.3", ":frozendict-latest"]
     
 )
 
